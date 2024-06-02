@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
+const attributeId = {
+  health: "health",
+  stamina: "stamina",
+  speed: "speed"
+}
+
 function CharacterAttributes({ totalPoints }) {
   const maxPerAttribute = Math.floor(totalPoints * 0.7);
 
@@ -29,36 +35,36 @@ function CharacterAttributes({ totalPoints }) {
           Health: {points.health}
           <input
             type="range"
-            id="health"
+            id={attributeId.health}
             min="0"
             max={maxPerAttribute}
             value={points.health}
             step="1"
-            onChange={(e) => handleChange("health", parseInt(e.target.value))}
+            onChange={(e) => handleChange(attributeId.health, parseInt(e.target.value))}
           />
       </div>
       <div>
           Stamina: {points.stamina}
           <input
             type="range"
-            id="stamina"
+            id={attributeId.stamina}
             min="0"
             max={maxPerAttribute}
             value={points.stamina}
             step="1"
-            onChange={(e) => handleChange("stamina", parseInt(e.target.value))}
+            onChange={(e) => handleChange(attributeId.stamina, parseInt(e.target.value))}
           />
       </div>
       <div>
           Speed: {points.speed}
           <input
             type="range"
-            id="speed"
+            id={attributeId.speed}
             min="0"
             max={maxPerAttribute}
             value={points.speed}
             step="1"
-            onChange={(e) => handleChange("speed", parseInt(e.target.value))}
+            onChange={(e) => handleChange(attributeId.speed, parseInt(e.target.value))}
           />
       </div>
     </div>
