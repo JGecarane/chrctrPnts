@@ -7,8 +7,14 @@ const attributeId = {
   speed: "speed"
 }
 
+function getMaxPoints(totalPoints){
+  let maxPoints = Math.floor(totalPoints * 0.7);
+  maxPoints = maxPoints > 0? maxPoints: 1
+  return maxPoints
+}
+
 function CharacterAttributes({ totalPoints }) {
-  const maxPerAttribute = Math.floor(totalPoints * 0.7);
+  const maxPerAttribute = getMaxPoints(totalPoints)
 
   const [points, setPoints] = useState({
     health: 0,
